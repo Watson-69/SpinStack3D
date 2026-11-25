@@ -1,0 +1,311 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource/jetbrains-mono/400.css";
+@import "@fontsource/jetbrains-mono/600.css";
+@import "@fontsource/jetbrains-mono/700.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root,
+:root[data-knockout-theme] {
+  font-family: "Manrope Variable", system-ui, sans-serif;
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color-scheme: dark;
+
+  --cutline-obsidian: #050505;
+  --cutline-cream: #ebded8;
+  --cutline-signal: #d91b16;
+
+  /* Default Obsidian (dark) */
+  --page: #050505;
+  --ink: #eae0da;
+  --muted: #a59892;
+  --line: #4b4240;
+  --surface: #201c1b;
+  --surface-elevated: rgba(32, 28, 27, 0.94);
+  --surface-subtle: rgba(234, 224, 218, 0.04);
+  --surface-hover: rgba(234, 224, 218, 0.08);
+  --focus: #ff7265;
+  --accent: #ff6255;
+  --accent-ink: #1a0807;
+  --grid-line: rgba(234, 224, 218, 0.06);
+
+  /* 3D canvas tokens */
+  --canvas-bg: #070707;
+  --canvas-fog: #070707;
+  --canvas-grid-cell: #25201f;
+  --canvas-grid-section: #4b4240;
+  --canvas-shadow: #000000;
+}
+
+:root[data-knockout-theme="light"] {
+  color-scheme: light;
+  --page: #ebded8;
+  --ink: #151211;
+  --muted: #675955;
+  --line: #bfb0aa;
+  --surface: #e0d0c8;
+  --surface-elevated: rgba(224, 208, 200, 0.96);
+  --surface-subtle: rgba(21, 18, 17, 0.045);
+  --surface-hover: rgba(21, 18, 17, 0.08);
+  --focus: #ab1513;
+  --accent: #bb1815;
+  --accent-ink: #fff1eb;
+  --grid-line: rgba(21, 18, 17, 0.07);
+
+  --canvas-bg: #e4d6cf;
+  --canvas-fog: #e4d6cf;
+  --canvas-grid-cell: #cbbdb6;
+  --canvas-grid-section: #8d7f79;
+  --canvas-shadow: #4a3f3a;
+}
+
+:root[data-knockout-theme="signal"] {
+  color-scheme: dark;
+  --page: #d91b16;
+  --ink: #fff0eb;
+  --muted: #ffefeb;
+  --line: #e38a7b;
+  --surface: #8d1715;
+  --surface-elevated: rgba(141, 23, 21, 0.96);
+  --surface-subtle: rgba(255, 240, 235, 0.08);
+  --surface-hover: rgba(255, 240, 235, 0.14);
+  --focus: #fff0eb;
+  --accent: #fff0eb;
+  --accent-ink: #8f1714;
+  --grid-line: rgba(255, 240, 235, 0.12);
+
+  --canvas-bg: #ba1713;
+  --canvas-fog: #ba1713;
+  --canvas-grid-cell: #e38a7b;
+  --canvas-grid-section: #fff0eb;
+  --canvas-shadow: #3d0706;
+}
+
+@layer base {
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--page);
+    color: var(--ink);
+    font-family: "Manrope Variable", system-ui, sans-serif;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: var(--accent-ink);
+  }
+
+  :where(a, button, input, select):focus-visible {
+    outline: 2px solid var(--focus);
+    outline-offset: 2px;
+  }
+}
+
+.font-editorial-title {
+  font-family: "Manrope Variable", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.045em;
+}
+
+.font-editorial-display {
+  font-family: "Manrope Variable", system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.075em;
+  line-height: 0.9;
+}
+
+.font-mono-tech {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  font-variant-numeric: tabular-nums;
+}
+
+.tabular-nums {
+  font-variant-numeric: tabular-nums;
+}
+
+/* Knockout sharp 1px controls */
+.manual-button {
+  background-color: transparent;
+  border: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--ink);
+  transition: background-color 140ms ease, border-color 140ms ease, color 140ms ease;
+}
+
+.manual-button:hover {
+  background-color: var(--surface);
+  border-color: var(--ink);
+}
+
+.manual-button.active {
+  background-color: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-ink);
+}
+
+.manual-tag {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.15rem 0.45rem;
+  border-radius: 0;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.drop-cap::first-letter {
+  float: left;
+  font-family: "Manrope Variable", system-ui, sans-serif;
+  font-size: 2.85rem;
+  line-height: 0.85;
+  font-weight: 800;
+  letter-spacing: -0.06em;
+  margin-right: 0.55rem;
+  margin-top: 0.1rem;
+  color: var(--accent);
+}
+
+.schematic-box {
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--accent);
+  border-radius: 0;
+}
+
+.linear-keycap {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 5px;
+  height: 18px;
+  min-width: 18px;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 0;
+}
+
+/* Knockout swatch row */
+.knockout-swatches {
+  display: inline-flex;
+  align-items: center;
+}
+
+.knockout-swatches button {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 32px;
+  background: transparent;
+  border: 0;
+  padding: 0;
+}
+
+.knockout-swatches span {
+  width: 11px;
+  height: 11px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: transform 140ms ease;
+}
+
+.knockout-swatches button:hover span {
+  transform: scale(1.18);
+}
+
+.knockout-swatches [aria-pressed="true"] span {
+  outline: 1px solid var(--ink);
+  outline-offset: 3px;
+}
+
+/* Editorial Curtain Intro */
+.knockout-curtain {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  overflow: clip;
+  background: var(--cutline-cream);
+  color: var(--cutline-signal);
+  --intro-ui: #382726;
+}
+
+.knockout-curtain[data-replay="true"] {
+  background: var(--page);
+  color: var(--ink);
+  --intro-ui: var(--ink);
+}
+
+.knockout-curtain-glyph {
+  display: inline-block;
+  overflow: clip;
+}
+
+.knockout-curtain-glyph-ink {
+  display: inline-block;
+  padding: 0.04em 0.02em 0.08em 0;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--page);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+@keyframes liquidGaugeWaveX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.liquid-wave-front {
+  animation: liquidGaugeWaveX 3.2s linear infinite;
+}
+
+.liquid-wave-back {
+  animation: liquidGaugeWaveX 5.4s linear infinite reverse;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  .liquid-wave-front,
+  .liquid-wave-back {
+    animation: none !important;
+  }
+
+  .liquid-fill-group {
+    transition: none !important;
+  }
+}
