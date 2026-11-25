@@ -1,3 +1,17 @@
+<div align="center">
+
+![header](https://capsule-render.vercel.app/api?type=waving&color=0:0f0f10,50:1a1a1e,100:ff3b30&height=200&section=header&text=SpinStack%203D&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=35)
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=600&size=22&pause=1000&color=FF3B30&center=true&vCenter=true&width=700&lines=Interactive+WebGL+HDD+Dissection+Viewer;Explore+11+Internal+Subsystems+in+Real+Time;7%2C200+RPM+Spindle+%7C+Actuator+Seek+Acoustics;Obsidian+%7C+Alabaster+%7C+Signal+Red+Themes)](https://git.io/typing-svg)
+
+![React](https://img.shields.io/badge/React-18-61DAFB?logo=react&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6-3178C6?logo=typescript&logoColor=white)
+![Three.js](https://img.shields.io/badge/Three.js-r3f-000000?logo=three.js&logoColor=white)
+![Vite](https://img.shields.io/badge/Vite-5-646CFF?logo=vite&logoColor=white)
+![Tailwind](https://img.shields.io/badge/Tailwind-v3-06B6D4?logo=tailwindcss&logoColor=white)
+
+</div>
+
 # SpinStack 3D — Enterprise HDD Architecture Explorer
 
 Interactive WebGL CAD and electromechanical dissection viewer for a 3.5-inch (SFF-8301) enterprise PMR hard disk drive. Inspect all 11 internal and external subsystems in real time, scrub vertically staggered exploded assemblies, trigger 7,200 RPM spindle rotation and actuator seek acoustics, switch between Obsidian / Alabaster / Signal Red editorial themes, and explore technical monographs covering physical principles, specifications, and field service advisories.
@@ -76,7 +90,17 @@ node scripts/diagnose_exploded.js
 ### Keyboard Shortcuts & URL Parameters
 
 - **Shortcuts:** `J` / `K` step chapters, `E` toggle exploded view, `F` / `R` refit camera, `S` toggle 7,200 RPM spindle, `X` toggle X-Ray casing, `L` toggle callout pins, `1`–`5` switch camera presets, `/` focus filter, `⌘K` / `Ctrl+K` Command Palette, `?` shortcuts modal, `M` mute audio.
-- **Query Flags:** `?skipPreloader=1` (or `?skipIntro=1`), `?theme=dark|light|signal`, `?selected=<part_id>`, `?exploded=1`, `?explodeVal=0.45`, `?xray=1`, `?preset=isometric|platter_macro|vcm_actuator|pcb_underside|exploded_blueprint`.
+- **Query Flags (URL parameters):** Add these to the URL to control the viewer on load.
+
+| Flag | What it does | Example |
+|---|---|---|
+| `skipPreloader` / `skipIntro` | Skip the intro animation | `?skipPreloader=1` |
+| `theme` | Set color theme | `?theme=dark` (dark / light / signal) |
+| `selected` | Select a part by id | `?selected=platter` |
+| `exploded` | Start in exploded view | `?exploded=1` |
+| `explodeVal` | Set explosion amount (0-1) | `?explodeVal=0.45` |
+| `xray` | Enable X-ray casing | `?xray=1` |
+| `preset` | Pick a camera view | `?preset=isometric` |
 
 ---
 
